@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AIOX Cohort Fundamentals · Turma 6 — Do Chat ao Sistema de Agentes</title>
+    <meta name="description" content="Mais de 400 pessoas já têm um time de agentes de IA no ar. Você ainda usa IA como chat. Em 6 encontros ao vivo, tenha seu primeiro sistema de captação de clientes construído por agentes. Sem saber programar." />
+    
+    <!-- Google Fonts: Outfit (Display & Sans) + Space Mono (Tech Monospace) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="index.css" />
+</head>
+<body class="antialiased selection:bg-cyan-500/20 selection:text-white bg-[#05070D] text-[#F5F7FA] overflow-x-hidden">
+
+    <!-- Atmospheric Design Layers -->
+    <div class="ambient-glow" aria-hidden="true"></div>
+    <div class="grid-layer" aria-hidden="true"></div>
+    <div class="noise-layer" aria-hidden="true"></div>
+
+    <!-- WebGL Canvas Container for 3D Generative Particle System -->
+    <div class="webgl-container" id="webgl-container" aria-hidden="true">
+        <canvas id="hero-particle-canvas"></canvas>
+    </div>
+
+    <!-- Accessible WebGL Fallback (Rendered if WebGL is unavailable) -->
+    <div class="webgl-fallback" id="webgl-fallback" aria-hidden="true">
+        <div class="fallback-constellation"></div>
+    </div>
+
+    <!-- Top Minimal Navigation Bar -->
+    <header class="hero-navbar" id="hero-nav">
+        <div class="nav-brand">
+            <span class="brand-badge">AIOX COHORT</span>
+            <span class="brand-divider">/</span>
+            <span class="brand-label font-mono">FUNDAMENTALS · T6</span>
+        </div>
+        <div class="nav-status font-mono">
+            <span class="status-dot"></span>
+            <span class="status-text" id="system-status-indicator">INÍCIO: 13 DE JUNHO (SÁBADO)</span>
+        </div>
+    </header>
+
+    <!-- Scroll Narrative Wrapper for Hero -->
+    <div class="hero-scroll-wrapper" id="hero-scroll-wrapper">
+        <section class="hero-stage" id="hero-stage" aria-label="Apresentação AIOX Cohort Fundamentals Turma 6">
+            <div class="hero-content-container">
+                
+                <!-- Tagline Badge -->
+                <div class="tagline uppercase tracking-widest font-mono animate-item" id="hero-badge">
+                    <span class="badge-icon">✦</span> AIOX Cohort Fundamentals · Turma 6 — Início 13 de Junho (sábado)
+                </div>
+                
+                <!-- H1 Headline (Mask Reveal) -->
+                <h1 class="font-outfit hero-headline animate-headline" id="hero-headline">
+                    Mais de 400 pessoas já têm um time de agentes de IA no ar.<br class="hidden sm:inline" />
+                    <span class="text-glow-gradient">Você ainda usa IA como chat.</span>
+                </h1>
+                
+                <!-- Subheadline -->
+                <p class="hero-subheadline font-sans animate-item" id="hero-subheadline">
+                    Em 6 encontros ao vivo, saia de usuário de chat para ter seu primeiro sistema de captação de clientes construído por agentes. Sem saber programar.
+                </p>
+                
+                <!-- Call-to-actions -->
+                <div class="hero-actions animate-item" id="hero-actions">
+                    <!-- Primary Shimmer Conic Beam Button -->
+                    <a href="#inscrever" class="btn btn-primary" id="primary-cta" aria-label="Garantir vaga na Turma 6">
+                        <span class="btn-beam" aria-hidden="true"></span>
+                        <span class="btn-text font-mono">Garantir vaga na Turma 6</span>
+                    </a>
+                    
+                    <!-- Secondary High-Tech Outline Button -->
+                    <a href="#como-funciona" class="btn btn-secondary font-mono" id="secondary-cta" aria-label="Ver como funciona">
+                        <svg class="cta-icon" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <line x1="7" y1="17" x2="17" y2="7"></line>
+                            <polyline points="7 7 17 7 17 17"></polyline>
+                        </svg>
+                        <span>Ver como funciona</span>
+                    </a>
+                </div>
+
+
+
+                <!-- Scroll Prompt Indicator -->
+                <div class="scroll-prompt font-mono" id="scroll-prompt" aria-hidden="true">
+                    <span class="scroll-mouse-icon">
+                        <span class="scroll-wheel"></span>
+                    </span>
+                    <span class="scroll-text">ROLE PARA TRANSFORMAR CHAT EM SISTEMA</span>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    <!-- External Libraries: Three.js r128, Postprocessing Shaders, Composer, GSAP 3.12.5, ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/CopyShader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/LuminosityHighPassShader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/Pass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/ShaderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/RenderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/EffectComposer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/UnrealBloomPass.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <!-- Custom Modules -->
+    <script src="particle-engine.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
